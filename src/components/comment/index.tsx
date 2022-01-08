@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { BASE_URL } from "../../config/settings";
 import CommentsList from "./commentList";
@@ -10,6 +11,8 @@ const CommentComponent = () => {
 
   const [list, setList] = useState([{ _id: "", email: "", comment: "" }]);
   const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getComments();
@@ -39,7 +42,8 @@ const CommentComponent = () => {
         setEmail(resp.email);
       })
       .catch((err) => {
-        console.log(err);
+        swal(`Unauthorized! come back after logged In`);
+        navigate("/signin");
       });
   };
 
