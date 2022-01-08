@@ -11,7 +11,6 @@ export default function ResetComponent() {
 
   const showPassword = (e:any)=>{
     e.preventDefault();
-    console.log(user)
     axios.post(`${BASE_URL}/getPassword`,user)
     .then(res=>{
       const resp = res.data;
