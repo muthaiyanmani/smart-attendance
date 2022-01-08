@@ -1,7 +1,30 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../config/settings";
 
 export default function SignUpComponent() {
+
+  const [user,setUser] = useState({
+    email:"",
+    password:"",
+    secretKey:""
+  })
+
+  const createUser = (e:any) => {
+    e.preventDefault();
+    axios.post(`${BASE_URL}/signup`,user)
+      .then(res=>{
+        const resp = res.data;
+        setUser({email:"",password:"",secretKey:""});
+        alert(resp.message);
+
+      })
+      .catch((err)=>{
+        alert(`${err.response.data.message}`)
+      })
+  }
   return (
     <>
       <div className="flex items-center justify-center h-screen min-h-full px-4 py-12 sm:px-6 lg:px-8">
@@ -20,16 +43,16 @@ export default function SignUpComponent() {
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" onSubmit={createUser}>
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
+               
                 <input
                   id="email-address"
                   name="email"
                   type="email"
+                  onChange={(e)=>setUser({...user,email:e.target.value})}
+                  value={user.email}
                   autoComplete="email"
                   required
                   className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -38,30 +61,26 @@ export default function SignUpComponent() {
               </div>
               <br />
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
                 <input
-                  id="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
                   required
+                  onChange={(e)=>setUser({...user,password:e.target.value})}
+                  value={user.password}
                   className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
               </div>
               <br />
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Secret Key
-                </label>
                 <input
-                  id="password"
-                  name="password"
+                  name="secretKey"
                   type="password"
                   autoComplete="current-password"
                   required
+                  onChange={(e)=>setUser({...user,secretKey:e.target.value})}
+                  value={user.secretKey}
                   className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Secret Key"
                 />

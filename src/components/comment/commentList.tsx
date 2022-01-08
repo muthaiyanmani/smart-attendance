@@ -1,26 +1,34 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { BASE_URL } from "../../config/settings";
+import { Comment } from "../comment/comments.type";
+
 export default function CommentsList() {
-  const people = [
-    {
-      name: "Calvin Hawkins",
-      email: "calvin.hawkins@example.com",
-      image:
-        "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-    {
-      name: "Calvin Hawkins",
-      email: "calvin.hawkins@example.com",
-      image:
-        "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    },
-  ];
+
+  const [list,setList] = useState([{_id:"",email:"",comment:""}]);
+  
+  useEffect(()=>{
+    getComments()
+  },[])
+
+  const getComments = () => {
+    axios.get(`${BASE_URL}/comments`)
+      .then(res=>{
+        const resp = res.data;
+        setList(resp.message);
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+  }
   return (
-    <ul role="list" className="divide-y divide-gray-200">
-      {people.map((person) => (
-        <li key={person.email} className="flex py-4">
-          <img className="w-10 h-10 rounded-full" src={person.image} alt="" />
+    <ul  className="divide-y divide-gray-200">
+      {list.map((person:Comment) => (
+        <li key={person._id} className="flex py-4">
+          {/* <img className="w-10 h-10 rounded-full" src={person.image} alt="" /> */}
           <div className="ml-3">
-            <p className="text-sm font-medium text-gray-900">{person.name}</p>
-            <p className="text-sm text-gray-500">{person.email}</p>
+            <p className="text-sm font-medium text-gray-900">{person.email}</p>
+            <p className="text-sm text-gray-500">{person.comment}</p>
           </div>
         </li>
       ))}

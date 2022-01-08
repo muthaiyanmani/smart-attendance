@@ -1,7 +1,28 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../config/settings";
 
 export default function SignInComponent() {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+  const loginHandler = (e:any)=>{
+    e.preventDefault();
+    console.log(user)
+    axios.post(`${BASE_URL}/signin`,user)
+    .then(res=>{
+      const resp = res.data;
+      setUser({email:"",password:""});
+      alert(resp.message);
+    })
+    .catch((err)=>{
+      alert(`${err.response.data.message}`)
+    })
+  }
   return (
     <>
       <div className="flex items-center justify-center h-screen min-h-full px-4 py-12 sm:px-6 lg:px-8">
@@ -20,38 +41,35 @@ export default function SignInComponent() {
               </Link>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" onSubmit={loginHandler}>
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
                 <input
-                  id="email-address"
                   name="email"
                   type="email"
                   autoComplete="email"
                   required
+                  value={user.email}
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
                   className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
                 />
               </div>
               <br />
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
                 <input
-                  id="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
                   required
+                  value={user.password}
+                  onChange={(e) =>
+                    setUser({ ...user, password: e.target.value })
+                  }
                   className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
                 />
               </div>
-             
             </div>
 
             <div className="flex items-center justify-between">

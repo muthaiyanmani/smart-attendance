@@ -1,6 +1,28 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
+import axios from "axios";
+import { useState } from "react";
+import { BASE_URL } from "../../config/settings";
 
 export default function ResetComponent() {
+  const [user, setUser] = useState({
+    email: "",
+    secretKey: "",
+  });
+
+  const showPassword = (e:any)=>{
+    e.preventDefault();
+    console.log(user)
+    axios.post(`${BASE_URL}/getPassword`,user)
+    .then(res=>{
+      const resp = res.data;
+      setUser({email:"",secretKey:""});
+      alert(resp.message);
+    })
+    .catch((err)=>{
+      alert(`${err.response.data.message}`)
+    })
+  }
+  
   return (
     <>
       <div className="flex items-center justify-center h-screen min-h-full px-4 py-12 sm:px-6 lg:px-8">
@@ -10,14 +32,12 @@ export default function ResetComponent() {
               Reset your password
             </h2>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" onSubmit={showPassword}>
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
                 <input
-                  id="email-address"
+                  value={user.email}
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -29,11 +49,11 @@ export default function ResetComponent() {
               <br />
 
               <div>
-                <label htmlFor="password" className="sr-only">
-                  Secret Key
-                </label>
                 <input
-                  id="password"
+                  value={user.secretKey}
+                  onChange={(e) =>
+                    setUser({ ...user, secretKey: e.target.value })
+                  }
                   name="password"
                   type="password"
                   autoComplete="current-password"
