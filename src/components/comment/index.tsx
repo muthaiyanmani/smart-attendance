@@ -7,7 +7,7 @@ const CommentComponent = () => {
   const [comment, setComment] = useState("");
   const postComment = (e:any)=>{
     e.preventDefault();
-    axios.post(`${BASE_URL}/comment`,{comment})
+    axios.post(`${BASE_URL}/comment`,{comment},{withCredentials:true})
     .then(res=>{
       const resp = res.data;
       setComment("");

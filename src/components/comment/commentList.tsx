@@ -12,7 +12,7 @@ export default function CommentsList() {
   },[])
 
   const getComments = () => {
-    axios.get(`${BASE_URL}/comments`)
+    axios.get(`${BASE_URL}/comments`,{withCredentials:true})
       .then(res=>{
         const resp = res.data;
         setList(resp.message);

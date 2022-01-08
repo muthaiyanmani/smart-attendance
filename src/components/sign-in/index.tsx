@@ -13,7 +13,7 @@ export default function SignInComponent() {
   const loginHandler = (e:any)=>{
     e.preventDefault();
     console.log(user)
-    axios.post(`${BASE_URL}/signin`,user)
+    axios.post(`${BASE_URL}/signin`,user,{withCredentials:true})
     .then(res=>{
       const resp = res.data;
       setUser({email:"",password:""});
