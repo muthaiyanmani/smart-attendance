@@ -2,6 +2,7 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import { BASE_URL } from "../../config/settings";
 
 export default function SignUpComponent() {
@@ -18,11 +19,11 @@ export default function SignUpComponent() {
       .then(res=>{
         const resp = res.data;
         setUser({email:"",password:"",secretKey:""});
-        alert(resp.message);
+        swal(resp.message);
 
       })
       .catch((err)=>{
-        alert(`${err.response.data.message}`)
+        swal(`${err.response.data.message}`)
       })
   }
   return (

@@ -1,26 +1,59 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import swal from "sweetalert";
 import { BASE_URL } from "../../config/settings";
 import CommentsList from "./commentList";
 
 const CommentComponent = () => {
   const [comment, setComment] = useState("");
-  const postComment = (e:any)=>{
+  const [load, setLoad] = useState(false);
+
+  const [list, setList] = useState([{ _id: "", email: "", comment: "" }]);
+  const [email, setEmail] = useState("");
+
+  useEffect(() => {
+    getComments();
+  }, [load]);
+
+  const postComment = (e: any) => {
     e.preventDefault();
-    axios.post(`${BASE_URL}/comment`,{comment},{withCredentials:true})
-    .then(res=>{
-      const resp = res.data;
-      setComment("");
-      alert(resp.message);
-    })
-    .catch((err)=>{
-      alert(`${err.response.data.message}`)
-    })
-  }
+    axios
+      .post(`${BASE_URL}/comment`, { comment }, { withCredentials: true })
+      .then((res) => {
+        const resp = res.data;
+        setComment("");
+        setLoad(!load);
+        swal(resp.message);
+      })
+      .catch((err) => {
+        swal(`${err.response.data.message}`);
+      });
+  };
+
+  const getComments = () => {
+    axios
+      .get(`${BASE_URL}/comments`, { withCredentials: true })
+      .then((res) => {
+        const resp = res.data;
+        setList(resp.message);
+        setEmail(resp.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getFilteredComments = () => {
+    setList(list.filter((item) => item.email === email));
+  };
+
   return (
     <div>
       <div className="flex items-center justify-center max-w-lg mx-auto mt-20 mb-4 shadow-lg">
-        <form onSubmit={postComment} className="w-full max-w-xl px-4 pt-2 bg-white rounded-lg">
+        <form
+          onSubmit={postComment}
+          className="w-full max-w-xl px-4 pt-2 bg-white rounded-lg"
+        >
           <div className="flex flex-wrap mb-6 -mx-3">
             <h2 className="px-4 pt-3 pb-2 text-lg text-gray-800">
               What would you like to share with the world?
@@ -41,7 +74,9 @@ const CommentComponent = () => {
                 <button
                   type="submit"
                   className="h-10 px-4 py-1 mr-1 font-medium tracking-wide text-gray-700 bg-white border border-gray-400 rounded-lg cursor-pointer hover:bg-gray-100"
-                >Post Comment</button>
+                >
+                  Post Comment
+                </button>
               </div>
             </div>
           </div>
@@ -55,12 +90,13 @@ const CommentComponent = () => {
           </h2>
           <button
             type="button"
+            onClick={getFilteredComments}
             className="flex items-center justify-center w-20 h-10 px-3 py-2 font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm text-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Filter
           </button>
         </div>
-        <CommentsList />
+        <CommentsList comments={list} />
       </div>
     </div>
   );
