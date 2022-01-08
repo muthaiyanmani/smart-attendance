@@ -8,6 +8,6 @@ npm install
 npm run start
 
 ## You can use this for live demo 
-https://rando-comment-app.vercel.app
-Note: try with firefox browser for cors blocking issue
+  https://rando-comment-app.vercel.app
+  Note: try with firefox browser for cors blocking issue
 
