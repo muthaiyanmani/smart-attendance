@@ -1,5 +1,10 @@
-Step 1: Change your BASE_URL to your backend domain [/src/config/setting.ts]
+## Step 1: 
+Point your backend URL [/src/config/setting.ts]
 
-Step 2:npm install
+## Step 2:
+npm install
 
-Step 3:npm run start
+## Step 3:
+npm run start
+
+## You can use this for live demo https://rando-comment-app.vercel.app
