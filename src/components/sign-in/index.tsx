@@ -1,7 +1,7 @@
 import { LockClosedIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { BASE_URL } from "../../config/settings";
 
@@ -11,14 +11,14 @@ export default function SignInComponent() {
     password: "",
   });
 
+  const navigate = useNavigate();
   const loginHandler = (e:any)=>{
     e.preventDefault();
-    console.log(user)
     axios.post(`${BASE_URL}/signin`,user,{withCredentials:true})
     .then(res=>{
       const resp = res.data;
       setUser({email:"",password:""});
-      
+      navigate('/');
     })
     .catch((err)=>{
       swal(`${err.response.data.message}`)
