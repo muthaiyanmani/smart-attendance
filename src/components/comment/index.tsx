@@ -15,7 +15,7 @@ const CommentComponent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getComments();
+    // getComments();
   }, [load]);
 
   const postComment = (e: any) => {
