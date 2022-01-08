@@ -15,7 +15,8 @@ const CommentComponent = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // getComments();
+    getComments();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [load]);
 
   const postComment = (e: any) => {

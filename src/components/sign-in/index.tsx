@@ -1,4 +1,3 @@
-import { LockClosedIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,7 +15,6 @@ export default function SignInComponent() {
     e.preventDefault();
     axios.post(`${BASE_URL}/signin`,user,{withCredentials:true})
     .then(res=>{
-      const resp = res.data;
       setUser({email:"",password:""});
       navigate('/');
     })

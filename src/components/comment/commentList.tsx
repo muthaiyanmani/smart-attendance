@@ -1,6 +1,3 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { BASE_URL } from "../../config/settings";
 import { Comment } from "./comments.type";
 
 export default function CommentsList({ comments }: { comments: Comment[] }) {
