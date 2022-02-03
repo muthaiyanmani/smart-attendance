@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../components/sidebar/sidebar";
-import Admission from "../components/admissions/index";
+import Sidebar from "../../components/sidebar/sidebar";
+import Admission from "../../components/admissions/index";
 
 type Props = {};
 
