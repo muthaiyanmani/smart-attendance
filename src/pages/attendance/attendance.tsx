@@ -1,12 +1,13 @@
 import React from "react";
-import Sidebar from "../components/sidebar/sidebar";
+import Attendance from "../../components/attendance/attendance";
+import Sidebar from "../../components/sidebar/sidebar";
 
 type Props = {};
 
 const Classroom = (props: Props) => {
   return (
     <Sidebar>
-      <h1>Classroom</h1>
+      <Attendance />
     </Sidebar>
   );
 };

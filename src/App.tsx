@@ -5,7 +5,7 @@ import AddClass from "./components/admissions/addClass";
 import AddNewClass from "./pages/admission/addNewClass";
 import Admissions from "./pages/admission/admissions";
 
-import Classroom from "./pages/classroom";
+import Classroom from "./pages/attendance/attendance";
 import Dashboard from "./pages/dashboard";
 
 import Reports from "./pages/reports";

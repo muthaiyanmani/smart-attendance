@@ -1,4 +1,5 @@
 import React from "react";
+import DashboardComponent from "../components/dashboard/dashboard";
 import Sidebar from "../components/sidebar/sidebar";
 
 type Props = {};
@@ -6,7 +7,7 @@ type Props = {};
 const Dashboard = (props: Props) => {
   return (
     <Sidebar>
-      <h1>Hello World</h1>
+      <DashboardComponent />
     </Sidebar>
   );
 };
