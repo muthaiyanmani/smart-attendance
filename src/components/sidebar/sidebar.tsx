@@ -39,12 +39,6 @@ export default function Sidebar({ children }: Props) {
       current: false,
     },
     {
-      name: "Calendar",
-      href: "/dashboard/calender",
-      icon: CalendarIcon,
-      current: false,
-    },
-    {
       name: "Reports",
       href: "/dashboard/reports",
       icon: ChartBarIcon,
@@ -242,7 +236,7 @@ export default function Sidebar({ children }: Props) {
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <main className="flex-1">{children}</main>
+          <main className="flex-1  px-2 md:px-5">{children}</main>
         </div>
       </div>
     </>

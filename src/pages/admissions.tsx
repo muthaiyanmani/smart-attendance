@@ -1,12 +1,13 @@
 import React from "react";
 import Sidebar from "../components/sidebar/sidebar";
+import Admission from "../components/admissions/index";
 
 type Props = {};
 
 const Admissions = (props: Props) => {
   return (
     <Sidebar>
-      <h1>Admissions</h1>
+      <Admission />
     </Sidebar>
   );
 };
