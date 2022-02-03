@@ -11,17 +11,18 @@ export default function SignInComponent() {
   });
 
   const navigate = useNavigate();
-  const loginHandler = (e:any)=>{
+  const loginHandler = (e: any) => {
     e.preventDefault();
-    axios.post(`${BASE_URL}/signin`,user,{withCredentials:true})
-    .then(res=>{
-      setUser({email:"",password:""});
-      navigate('/');
-    })
-    .catch((err)=>{
-      swal(`${err.response.data.message}`)
-    })
-  }
+    axios
+      .post(`${BASE_URL}/signin`, user, { withCredentials: true })
+      .then((res) => {
+        setUser({ email: "", password: "" });
+        navigate("/");
+      })
+      .catch((err) => {
+        swal(`${err.response.data.message}`);
+      });
+  };
   return (
     <>
       <div className="flex items-center justify-center h-screen min-h-full px-4 py-12 sm:px-6 lg:px-8">
@@ -30,16 +31,8 @@ export default function SignInComponent() {
             <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
               Sign in to your account
             </h2>
-            <p className="mt-2 text-sm text-center text-gray-600">
-              Don't have an account?{"  "}
-              <Link
-                to={"/signup"}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Sign up
-              </Link>
-            </p>
           </div>
+          <br />
           <form className="mt-8 space-y-6" onSubmit={loginHandler}>
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
@@ -75,12 +68,13 @@ export default function SignInComponent() {
               <div className="flex items-center"></div>
 
               <div className="text-sm">
-                <Link
-                  to="/reset"
+                <a
+                  href="#"
+                  onClick={() => alert("Contact Administrator")}
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?
-                </Link>
+                </a>
               </div>
             </div>
 

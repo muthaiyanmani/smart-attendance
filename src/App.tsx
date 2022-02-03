@@ -1,19 +1,25 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Comments from "./pages/comments";
-import ResetPassword from "./pages/showPassword";
+import Admissions from "./pages/admissions";
+import Calender from "./pages/calender";
+import Classroom from "./pages/classroom";
+import Dashboard from "./pages/dashboard";
+
+import Reports from "./pages/reports";
+
 import SignIn from "./pages/signIn";
-import SignUp from "./pages/signUp";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Comments/>}/>
-        <Route path="/signin" element={<SignIn/>}/>
-        <Route path="/signup" element={<SignUp/>}/>
-        <Route path="/reset" element={<ResetPassword/>}/>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/classroom" element={<Classroom />} />
+        <Route path="/dashboard/admissions" element={<Admissions />} />
+        <Route path="/dashboard/calender" element={<Calender />} />
+        <Route path="/dashboard/reports" element={<Reports />} />
       </Routes>
     </BrowserRouter>
   );
