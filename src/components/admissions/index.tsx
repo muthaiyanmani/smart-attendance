@@ -10,7 +10,7 @@ const Admission = (props: Props) => {
         <h1 className="text-lg md:text-2xl">Admissions</h1>
         <p>Select your class and add a student.</p>
       </div>
-      <Card addNewCard={true} />
+      <Card addNewCard={true} route={"admissions"} />
     </div>
   );
 };

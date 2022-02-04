@@ -83,27 +83,47 @@ const people = [
     image:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
   },
+  {
+    name: "Jane Cooper",
+    class: "CSE I",
+    dob: "01-01-2000",
+    mobile: "0987654321",
+    role: "Admin",
+    email: "jane.cooper@example.com",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+  },
+  {
+    name: "Jane Cooper",
+    class: "CSE I",
+    dob: "01-01-2000",
+    mobile: "0987654321",
+    role: "Admin",
+    email: "jane.cooper@example.com",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
+  },
 ];
 
 export default function StudentsList() {
   const params = useParams();
   return (
-    <div className="flex flex-col">
-      <div className="my-10 overflow-x-auto ">
+    <div className="flex  flex-col">
+      <div className="flex mt-12 min-w-full sm:px-6 lg:px-8 justify-between">
+        <div className="text-xl ">
+          <h1>Students list</h1>
+        </div>
+        <div>
+          <Link
+            to={`/dashboard/admissions/${params.class}/new`}
+            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          >
+            Add Student
+          </Link>
+        </div>
+      </div>
+      <div className=" overflow-x-auto ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-          <div className="flex my-2 justify-between">
-            <div className="text-xl ">
-              <h1>Students list</h1>
-            </div>
-            <div>
-              <Link
-                to={`/dashboard/admissions/${params.class}/new`}
-                className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-              >
-                Add Student
-              </Link>
-            </div>
-          </div>
           <div className="shadow mt-10 overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">

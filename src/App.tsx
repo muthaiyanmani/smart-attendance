@@ -7,7 +7,8 @@ import AddNewStudent from "./pages/admission/addNewStudent";
 import Admissions from "./pages/admission/admissions";
 import ClassStudentsList from "./pages/admission/classStudentsList";
 
-import Classroom from "./pages/attendance/attendance";
+import Classroom from "./pages/classroom/attendance";
+import StudentsList from "./pages/classroom/studentsList";
 import Dashboard from "./pages/dashboard";
 
 import Reports from "./pages/reports";
@@ -20,7 +21,12 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Classroom Tab */}
         <Route path="/dashboard/classroom" element={<Classroom />} />
+        <Route path="/dashboard/classroom/:class" element={<StudentsList />} />
+
+        {/* Admissions Tab */}
         <Route path="/dashboard/admissions" element={<Admissions />} />
         <Route
           path="/dashboard/admissions/:class"

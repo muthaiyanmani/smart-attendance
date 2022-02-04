@@ -38,9 +38,10 @@ const people = [
 
 type Props = {
   addNewCard?: boolean;
+  route: string;
 };
 
-export default function Card({ addNewCard = false }: Props) {
+export default function Card({ addNewCard = false, route }: Props) {
   return (
     <ul className="grid grid-cols-1 px-3 md:px-1 my-5 gap-5 md:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {people.map((item, index) => (
@@ -49,7 +50,7 @@ export default function Card({ addNewCard = false }: Props) {
           className="col-span-1 hover:scale-105 transition-all flex flex-col text-center bg-white border border-gray-300 rounded-lg shadow divide-y divide-gray-200"
         >
           <Link
-            to={`/dashboard/admissions/${item.route}`}
+            to={`/dashboard/${route}/${item.route}`}
             className="flex-1 flex flex-col p-8"
           >
             <h3 className="mt-6 text-gray-900 text-sm font-medium">

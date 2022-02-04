@@ -10,7 +10,7 @@ const Attendance = (props: Props) => {
         <h1 className="text-lg md:text-2xl">Attendance</h1>
         <p>Select your class and mark the attendance.</p>
       </div>
-      <Card />
+      <Card route={"classroom"} />
     </div>
   );
 };
