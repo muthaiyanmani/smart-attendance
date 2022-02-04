@@ -25,24 +25,29 @@ export default function Sidebar({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const navigation = [
-    { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
+    {
+      name: "Dashboard",
+      href: "/dashboard",
+      icon: HomeIcon,
+      current: window.location.pathname === "/dashboard",
+    },
     {
       name: "Classroom",
       href: "/dashboard/classroom",
       icon: UsersIcon,
-      current: false,
+      current: window.location.pathname.includes("/dashboard/classroom"),
     },
     {
       name: "Admissions",
       href: "/dashboard/admissions",
       icon: FolderIcon,
-      current: false,
+      current: window.location.pathname.includes("/dashboard/admissions"),
     },
     {
       name: "Reports",
       href: "/dashboard/reports",
       icon: ChartBarIcon,
-      current: false,
+      current: window.location.pathname.includes("/dashboard/reports"),
     },
   ];
 

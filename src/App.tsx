@@ -3,7 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddClass from "./components/admissions/addClass";
 import AddNewClass from "./pages/admission/addNewClass";
+import AddNewStudent from "./pages/admission/addNewStudent";
 import Admissions from "./pages/admission/admissions";
+import ClassStudentsList from "./pages/admission/classStudentsList";
 
 import Classroom from "./pages/attendance/attendance";
 import Dashboard from "./pages/dashboard";
@@ -20,6 +22,14 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/dashboard/classroom" element={<Classroom />} />
         <Route path="/dashboard/admissions" element={<Admissions />} />
+        <Route
+          path="/dashboard/admissions/:class"
+          element={<ClassStudentsList />}
+        />
+        <Route
+          path="/dashboard/admissions/:class/new"
+          element={<AddNewStudent />}
+        />
         <Route path="/dashboard/admissions/new" element={<AddNewClass />} />
         <Route path="/dashboard/reports" element={<Reports />} />
       </Routes>
