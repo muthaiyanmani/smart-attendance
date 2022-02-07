@@ -1,5 +1,5 @@
 import React from "react";
-import AddStudentForm from "../../components/admissions/addStudentForm";
+import AddStudentForm from "../../components/admissions/studentForm";
 
 import Sidebar from "../../components/global/sidebar";
 

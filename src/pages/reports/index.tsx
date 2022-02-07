@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../../components/global/card";
 import Sidebar from "../../components/global/sidebar";
 
 type Props = {};
@@ -6,7 +7,13 @@ type Props = {};
 const Reports = (props: Props) => {
   return (
     <Sidebar>
-      <h1>Reports</h1>
+      <div>
+        <div className=" py-5">
+          <h1 className="text-lg md:text-2xl">Reports</h1>
+          <p>Select your class and mark the attendance.</p>
+        </div>
+        <Card route={"reports"} />
+      </div>
     </Sidebar>
   );
 };

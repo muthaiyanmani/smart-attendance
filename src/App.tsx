@@ -16,6 +16,7 @@ import Reports from "./pages/reports";
 import SignIn from "./pages/sign-in/signIn";
 import EditStudent from "./pages/admission/editStudent";
 import ViewStudent from "./pages/admission/viewStudent";
+import AttendanceForm from "./pages/classroom/attendaceForm";
 
 function App() {
   return (
@@ -28,7 +29,10 @@ function App() {
 
       {/* Classroom Tab */}
       <Route path="/dashboard/classroom" element={<Classroom />} />
-      <Route path="/dashboard/classroom/:classId" element={<StudentsList />} />
+      <Route
+        path="/dashboard/classroom/:classId"
+        element={<AttendanceForm />}
+      />
 
       {/* Admissions Tab */}
       <Route path="/dashboard/admissions" element={<Admissions />} />
@@ -52,6 +56,7 @@ function App() {
 
       {/* Reports */}
       <Route path="/dashboard/reports" element={<Reports />} />
+      <Route path="/dashboard/reports/:classId" element={<Reports />} />
     </Routes>
   );
 }

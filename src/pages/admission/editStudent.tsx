@@ -1,5 +1,5 @@
 import React from "react";
-import StudentForm from "../../components/admissions/addStudentForm";
+import StudentForm from "../../components/admissions/studentForm";
 import Sidebar from "../../components/global/sidebar";
 
 type Props = {};
