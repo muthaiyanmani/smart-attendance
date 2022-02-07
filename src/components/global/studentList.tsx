@@ -106,22 +106,8 @@ const people = [
 ];
 
 export default function StudentsList() {
-  const params = useParams();
   return (
-    <div className="flex  flex-col">
-      <div className="flex mt-12 min-w-full sm:px-6 lg:px-8 justify-between">
-        <div className="text-xl ">
-          <h1>Students list</h1>
-        </div>
-        <div>
-          <Link
-            to={`/dashboard/admissions/${params.class}/new`}
-            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Add Student
-          </Link>
-        </div>
-      </div>
+    <>
       <div className=" overflow-x-auto ">
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow mt-10 overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -190,21 +176,21 @@ export default function StudentsList() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="flex justify-between">
                         <div>
-                          <a
-                            href="#"
+                          <Link
+                            to={`view/123`}
                             className="text-indigo-600 flex flex-col items-center hover:text-indigo-900"
                           >
                             <EyeIcon className="w-5 h-5" /> View
-                          </a>
+                          </Link>
                         </div>
                         <div className="">
-                          <a
-                            href="#"
+                          <Link
+                            to={`edit/123`}
                             className="text-indigo-600 hover:text-indigo-900"
                           >
                             <PencilAltIcon className="w-5 h-5" />
                             Edit
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </td>
@@ -215,6 +201,6 @@ export default function StudentsList() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

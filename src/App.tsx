@@ -1,45 +1,58 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import AddClass from "./components/admissions/addClass";
-import AddNewClass from "./pages/admission/addNewClass";
-import AddNewStudent from "./pages/admission/addNewStudent";
-import Admissions from "./pages/admission/admissions";
-import ClassStudentsList from "./pages/admission/classStudentsList";
 
-import Classroom from "./pages/classroom/attendance";
-import StudentsList from "./pages/classroom/studentsList";
+import AddNewClass from "./pages/admission/addClass";
+import AddNewStudent from "./pages/admission/addStudent";
+import Admissions from "./pages/admission";
+import ClassStudentsList from "./pages/admission/list";
+import Classroom from "./pages/classroom";
+
+import StudentsList from "./pages/classroom/list";
 import Dashboard from "./pages/dashboard";
 
 import Reports from "./pages/reports";
 
-import SignIn from "./pages/signIn";
+import SignIn from "./pages/sign-in/signIn";
+import EditStudent from "./pages/admission/editStudent";
+import ViewStudent from "./pages/admission/viewStudent";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<SignIn />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+    <Routes>
+      {/* Sign in */}
+      <Route path="/" element={<SignIn />} />
 
-        {/* Classroom Tab */}
-        <Route path="/dashboard/classroom" element={<Classroom />} />
-        <Route path="/dashboard/classroom/:class" element={<StudentsList />} />
+      {/* Dashboard */}
+      <Route path="/dashboard" element={<Dashboard />} />
 
-        {/* Admissions Tab */}
-        <Route path="/dashboard/admissions" element={<Admissions />} />
-        <Route
-          path="/dashboard/admissions/:class"
-          element={<ClassStudentsList />}
-        />
-        <Route
-          path="/dashboard/admissions/:class/new"
-          element={<AddNewStudent />}
-        />
-        <Route path="/dashboard/admissions/new" element={<AddNewClass />} />
-        <Route path="/dashboard/reports" element={<Reports />} />
-      </Routes>
-    </BrowserRouter>
+      {/* Classroom Tab */}
+      <Route path="/dashboard/classroom" element={<Classroom />} />
+      <Route path="/dashboard/classroom/:classId" element={<StudentsList />} />
+
+      {/* Admissions Tab */}
+      <Route path="/dashboard/admissions" element={<Admissions />} />
+      <Route
+        path="/dashboard/admissions/:classId"
+        element={<ClassStudentsList />}
+      />
+      <Route
+        path="/dashboard/admissions/:classId/new"
+        element={<AddNewStudent />}
+      />
+      <Route
+        path="/dashboard/admissions/:classId/edit/:studentId"
+        element={<EditStudent />}
+      />
+      <Route
+        path="/dashboard/admissions/:classId/view/:studentId"
+        element={<ViewStudent />}
+      />
+      <Route path="/dashboard/admissions/new" element={<AddNewClass />} />
+
+      {/* Reports */}
+      <Route path="/dashboard/reports" element={<Reports />} />
+    </Routes>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
-import DashboardComponent from "../components/dashboard/dashboard";
-import Sidebar from "../components/sidebar/sidebar";
+import DashboardComponent from "../../components/dashboard/pieChart";
+import Sidebar from "../../components/global/sidebar";
 
 type Props = {};
 

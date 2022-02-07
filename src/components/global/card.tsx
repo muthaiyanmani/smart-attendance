@@ -27,7 +27,7 @@ const people = [
   {
     class: "ECE",
     teacher: "Mr. Test",
-    route: "cse",
+    route: "eee",
   },
   {
     class: "CSE",
