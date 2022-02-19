@@ -13,15 +13,16 @@ export default function SignInComponent() {
   const navigate = useNavigate();
   const loginHandler = (e: any) => {
     e.preventDefault();
-    axios
-      .post(`${BASE_URL}/signin`, user, { withCredentials: true })
-      .then((res) => {
-        setUser({ email: "", password: "" });
-        navigate("/");
-      })
-      .catch((err) => {
-        swal(`${err.response.data.message}`);
-      });
+    navigate("/dashboard");
+    // axios
+    //   .post(`${BASE_URL}/signin`, user, { withCredentials: true })
+    //   .then((res) => {
+    //     setUser({ email: "", password: "" });
+    //     navigate("/");
+    //   })
+    //   .catch((err) => {
+    //     swal(`${err.response.data.message}`);
+    //   });
   };
   return (
     <>
