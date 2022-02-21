@@ -145,7 +145,7 @@ export default function Sidebar({ children }: Props) {
                   </nav>
                 </div>
                 <div className="flex-shrink-0 flex bg-gray-700 p-4">
-                  <a href="#" className="flex-shrink-0 group block">
+                  <Link to="/" className="flex-shrink-0 group block">
                     <div className="flex items-center">
                       <div>
                         <img
@@ -163,7 +163,7 @@ export default function Sidebar({ children }: Props) {
                         </p>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </Transition.Child>
@@ -210,7 +210,7 @@ export default function Sidebar({ children }: Props) {
               </nav>
             </div>
             <div className="flex-shrink-0 flex bg-gray-700 p-4">
-              <a href="#" className="flex-shrink-0 w-full group block">
+              <Link to="/" className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
                     <img
@@ -226,7 +226,7 @@ export default function Sidebar({ children }: Props) {
                     </p>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

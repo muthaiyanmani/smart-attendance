@@ -17,7 +17,7 @@ const DashboardComponent = (props: Props) => {
           breakpoint: 480,
           options: {
             chart: {
-              width: 200,
+              width: 320,
             },
             legend: {
               position: "bottom",
