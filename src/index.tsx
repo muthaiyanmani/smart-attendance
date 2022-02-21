@@ -13,6 +13,6 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 
 reportWebVitals();
