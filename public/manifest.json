@@ -10,11 +10,7 @@
     {
       "src": "logo.png",
       "type": "image/png",
-<<<<<<< HEAD
-      "sizes": "192x192 512x512"
-=======
       "sizes": "192x192"
->>>>>>> parent of 8f9d145 (Update manifest.json)
     }
   ],
   "start_url": "/login",
