@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import {
   CalendarIcon,
@@ -10,6 +10,8 @@ import {
   MenuIcon,
   UsersIcon,
   XIcon,
+  CheckCircleIcon,
+  XCircleIcon,
 } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
@@ -23,6 +25,12 @@ type Props = {
 
 export default function Sidebar({ children }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const [onlineStatus, setOnlineStatus] = useState(false);
+
+  useEffect(() => {
+    navigator.onLine ? setOnlineStatus(true) : setOnlineStatus(false);
+  }, [navigator.onLine]);
 
   const navigation = [
     {
@@ -225,13 +233,26 @@ export default function Sidebar({ children }: Props) {
                       Logout
                     </p>
                   </div>
+                  <div className="ml-6 text-sm">
+                    {onlineStatus ? (
+                      <div className="flex items-center space-x-1">
+                        <CheckCircleIcon className="w-5 text-green-800 h-5" />
+                        <h1 className="text-gray-500">Online</h1>
+                      </div>
+                    ) : (
+                      <div className="flex items-center space-x-1">
+                        <CheckCircleIcon className="w-5 text-red-600 h-5" />
+                        <h1 className="text-gray-500">Offline</h1>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </Link>
             </div>
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
-          <div className="sticky top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 bg-gray-100">
+          <div className="sticky flex justify-between top-0 z-10 md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3 bg-gray-100">
             <button
               type="button"
               className="-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
@@ -240,6 +261,17 @@ export default function Sidebar({ children }: Props) {
               <span className="sr-only">Open sidebar</span>
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </button>
+            {onlineStatus ? (
+              <div className="flex pr-4 items-center space-x-1">
+                <CheckCircleIcon className="w-4 text-green-800 h-4" />
+                <h1 className="text-gray-500 text-xs">Online</h1>
+              </div>
+            ) : (
+              <div className="flex pr-4 items-center space-x-1">
+                <XCircleIcon className="w-4 text-red-600 h-4" />
+                <h1 className="text-gray-500 text-xs">Offline</h1>
+              </div>
+            )}
           </div>
           <main className="flex-1  px-2 md:px-5">{children}</main>
         </div>
