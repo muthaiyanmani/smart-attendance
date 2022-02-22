@@ -157,13 +157,12 @@ export default function SignInComponent() {
                   <div className="flex items-center"></div>
 
                   <div className="text-sm">
-                    <a
-                      href="#"
+                    <button
                       onClick={() => alert("Contact Administrator")}
                       className="font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Forgot your password?
-                    </a>
+                    </button>
                   </div>
                 </div>
 
