@@ -9,7 +9,7 @@ const Reports = (props: Props) => {
     <Sidebar>
       <div>
         <div className=" py-5">
-          <h1 className="text-lg md:text-2xl">Reports</h1>
+          <h1 className="text-lg font-medium md:text-2xl">Reports</h1>
           <p>Select your class and mark the attendance.</p>
         </div>
         <Card route={"reports"} />

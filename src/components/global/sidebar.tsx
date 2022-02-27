@@ -24,9 +24,6 @@ type Props = {
 };
 
 export default function Sidebar({ children }: Props) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
-
   const [onlineStatus, setOnlineStatus] = useState(false);
 
   useEffect(() => {
@@ -65,7 +62,7 @@ export default function Sidebar({ children }: Props) {
       <div>
         {/* Mobile Navigation */}
 
-        <nav className="fixed bg-slate-200 lg:hidden bottom-0 left-0 right-0 z-20 shadow-t ">
+        <nav className="fixed bg-slate-200 lg:hidden  bottom-0 left-0 right-0 z-20 shadow-t ">
           <div className=" sm:px-2">
             <ul className="flex w-full justify-between items-center text-black-500">
               {navigation.map((item, index) => {
@@ -170,7 +167,15 @@ export default function Sidebar({ children }: Props) {
           </div>
         </div>
         <div className="lg:pl-64 flex flex-col flex-1">
-          <main className="flex-1  px-2 md:px-5">{children}</main>
+          <div className="sticky items-center shadow-lg w-full py-3 flex justify-between top-0 z-10 lg:hidden pl-1 sm:pl-3 sm:pt-3 bg-slate-200">
+            <div className="flex justify-center">
+              <h1 className="font-medium text-xl items-center">
+                Smart Attendance
+              </h1>
+            </div>
+          </div>
+
+          <main className="flex-1  px-2 md:px-5 mb-16 lg:mb-2">{children}</main>
         </div>
       </div>
     </>

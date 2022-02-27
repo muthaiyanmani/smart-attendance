@@ -7,7 +7,9 @@ type Props = {};
 const Dashboard = (props: Props) => {
   return (
     <Sidebar>
-      <DashboardComponent />
+      <div className="mt-5 flex justify-center">
+        <DashboardComponent />
+      </div>
     </Sidebar>
   );
 };
