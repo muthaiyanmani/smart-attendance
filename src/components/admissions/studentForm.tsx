@@ -1,3 +1,5 @@
+import Input from "../global/Input";
+
 export default function StudentForm() {
   return (
     <form action="#" method="POST" className="my-4">
@@ -5,60 +7,19 @@ export default function StudentForm() {
         <div className="space-y-4">
           <div className="flex flex-col md:flex-row justify-between">
             <div className="flex-1 mr-1 md:mr-5">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                First name<span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input label="First Name" name="firstName" isRequired={true} />
             </div>
             <div>
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Last name<span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input label="Last Name" name="lastName" isRequired={true} />
             </div>
           </div>
           <div>
-            <label
-              htmlFor="first-name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Class<span className="text-red-600 mx-1">*</span>
-            </label>
-            <div className="mt-1">
-              <select
-                name="first-name"
-                id="first-name"
-                autoComplete="given-name"
-                className="block px-2 w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-              >
-                <option>CSE I</option>
-                <option>CSE II</option>
-                <option>CSE III</option>
-                <option>CSE IV</option>
-              </select>
-            </div>
+            <Input
+              label="Class"
+              name="class"
+              isRequired={true}
+              isDisabled={true}
+            />
           </div>
           <div>
             <label
@@ -80,41 +41,14 @@ export default function StudentForm() {
               </select>
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email
-            </label>
-            <div className="mt-1">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-              />
-            </div>
-          </div>
-          <div className="sm:col-span-2">
-            <label
-              htmlFor="company"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Date of Birth
-              <span className="text-red-600 mx-1">*</span>
-            </label>
-            <div className="mt-1">
-              <input
-                type="date"
-                name="company"
-                id="company"
-                autoComplete="organization"
-                className="block px-2 w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-              />
-            </div>
-          </div>
+
+          <Input label="Email" name="email" type="text" />
+          <Input
+            label="Date of Birth"
+            name="dob"
+            type="date"
+            isRequired={true}
+          />
 
           <div className="sm:col-span-2">
             <div className="flex justify-between">
@@ -146,113 +80,34 @@ export default function StudentForm() {
         <div className="space-y-4">
           <div className="md:flex justify-between space-y-4 md:space-y-0">
             <div className="md:w-8/12 mr-2">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Father's Name
-                <span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full py-3 px-2 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input
+                label="Father's Name"
+                name="fatherName"
+                isRequired={true}
+              />
             </div>
             <div className="md:w-4/12">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Occupation<span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input label="Occupation" name="fatherOccupation" />
             </div>
           </div>
           <div className="md:flex justify-between space-y-4 md:space-y-0">
             <div className="md:w-8/12 mr-2">
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Mother's Name
-                <span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="first-name"
-                  id="first-name"
-                  autoComplete="given-name"
-                  className="block w-full py-3 px-2 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input
+                label="Mother's Name"
+                name="motherName"
+                isRequired={true}
+              />
             </div>
             <div className="md:w-4/12">
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Occupation<span className="text-red-600 mx-1">*</span>
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="last-name"
-                  id="last-name"
-                  autoComplete="family-name"
-                  className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                />
-              </div>
+              <Input label="Occupation" name="motherOccupation" />
             </div>
           </div>
 
           <div className="sm:col-span-2">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Annual Income
-              <span className="text-red-600 mx-1">*</span>
-            </label>
-            <div className="mt-1">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                className="block w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-              />
-            </div>
+            <Input label="Annual Income" name="annualIncome" type="number" />
           </div>
           <div className="sm:col-span-2">
-            <label
-              htmlFor="company"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Contact No.<span className="text-red-600 mx-1">*</span>
-            </label>
-            <div className="mt-1">
-              <input
-                type="tel"
-                name="company"
-                id="company"
-                autoComplete="organization"
-                className="block px-2 w-full py-3 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-              />
-            </div>
+            <Input label="Contact No." name="phoneNumber" isRequired={true} />
           </div>
 
           <div>
