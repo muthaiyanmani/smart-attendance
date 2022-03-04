@@ -2,21 +2,20 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import AddNewClass from "./pages/admission/addClass";
-import AddNewStudent from "./pages/admission/addStudent";
+import AddNewClass from "./pages/admission/CreateClass";
+import AddNewStudent from "./pages/admission/AddStudent";
 import Admissions from "./pages/admission";
-import ClassStudentsList from "./pages/admission/list";
+import ClassStudentsList from "./pages/admission/StudentList";
 import Classroom from "./pages/classroom";
 
-import StudentsList from "./pages/classroom/list";
 import Dashboard from "./pages/dashboard";
 
 import Reports from "./pages/reports";
 
-import SignIn from "./pages/sign-in/signIn";
-import EditStudent from "./pages/admission/editStudent";
-import ViewStudent from "./pages/admission/viewStudent";
-import AttendanceForm from "./pages/classroom/attendaceForm";
+import SignIn from "./pages/sign-in";
+import EditStudent from "./pages/admission/EditStudent";
+import ViewStudent from "./pages/admission/ViewStudent";
+import AttendanceForm from "./pages/classroom/AttendaceForm";
 
 function App() {
   return (

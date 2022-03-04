@@ -1,7 +1,7 @@
 import React from "react";
-import DashboardComponent from "../../components/dashboard/pieChart";
-import Sidebar from "../../components/global/sidebar";
-import Alert from "../../components/Alert";
+import DashboardComponent from "../../components/pages/dashboard/PieChart";
+import Sidebar from "../../components/global/Sidebar";
+import Alert from "../../components/global/Alert";
 
 type Props = {};
 

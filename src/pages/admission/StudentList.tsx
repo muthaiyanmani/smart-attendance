@@ -1,16 +1,16 @@
 import React from "react";
-import Sidebar from "../../components/global/sidebar";
-import StudentList from "../../components/global/studentList";
-import { EyeIcon, PencilAltIcon } from "@heroicons/react/outline";
 import { Link, useParams } from "react-router-dom";
+import StudentsList from "../../components/global/StudentList";
+import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
 
-const StudentsList = (props: Props) => {
+const StudentList = (props: Props) => {
   const params = useParams();
 
   return (
     <Sidebar>
+      {" "}
       <div className="flex  flex-col">
         <div className="flex mt-12 min-w-full sm:px-6 lg:px-8 justify-between">
           <div className="text-xl ">
@@ -25,10 +25,10 @@ const StudentsList = (props: Props) => {
             </Link>
           </div>
         </div>
-        <StudentList />
+        <StudentsList />
       </div>
     </Sidebar>
   );
 };
 
-export default StudentsList;
+export default StudentList;

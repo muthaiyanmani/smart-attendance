@@ -1,4 +1,4 @@
-export default function AddClass() {
+export default function AddClassForm() {
   return (
     <form className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
       <div>

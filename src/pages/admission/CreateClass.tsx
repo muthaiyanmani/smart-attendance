@@ -1,10 +1,11 @@
 import React from "react";
-import AddClass from "../../components/admissions/addClass";
-import Sidebar from "../../components/global/sidebar";
+import AddClass from "../../components/pages/admissions/AddClassForm";
+import Sidebar from "../../components/global/Sidebar";
+import AddClassForm from "../../components/pages/admissions/AddClassForm";
 
 type Props = {};
 
-const AddNewClass = (props: Props) => {
+const CreateClass = (props: Props) => {
   return (
     <Sidebar>
       <div className="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
@@ -15,7 +16,7 @@ const AddNewClass = (props: Props) => {
             </h2>
           </div>
           <div className="mt-12">
-            <AddClass />
+            <AddClassForm />
           </div>
         </div>
       </div>
@@ -23,4 +24,4 @@ const AddNewClass = (props: Props) => {
   );
 };
 
-export default AddNewClass;
+export default CreateClass;

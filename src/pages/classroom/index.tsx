@@ -1,7 +1,7 @@
 import React from "react";
-import Card from "../../components/global/card";
+import Card from "../../components/global/Card";
 
-import Sidebar from "../../components/global/sidebar";
+import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
 

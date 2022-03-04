@@ -1,6 +1,6 @@
 import React from "react";
-import StudentForm from "../../components/admissions/studentForm";
-import Sidebar from "../../components/global/sidebar";
+import StudentForm from "../../components/pages/admissions/StudentForm";
+import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
 

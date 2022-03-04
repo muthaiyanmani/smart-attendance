@@ -1,10 +1,10 @@
 import React from "react";
-import Sidebar from "../../components/global/sidebar";
-import StudentList from "../../components/attendance/attendanceForm";
+import Sidebar from "../../components/global/Sidebar";
+import StudentList from "../../components/pages/attendance/AttendanceForm";
 
 type Props = {};
 
-const AtendaceForm = (props: Props) => {
+const AttendanceForm = (props: Props) => {
   return (
     <Sidebar>
       <div className="flex  flex-col">
@@ -19,4 +19,4 @@ const AtendaceForm = (props: Props) => {
   );
 };
 
-export default AtendaceForm;
+export default AttendanceForm;

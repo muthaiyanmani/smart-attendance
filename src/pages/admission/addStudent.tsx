@@ -1,7 +1,7 @@
 import React from "react";
-import AddStudentForm from "../../components/admissions/studentForm";
+import AddStudentForm from "../../components/pages/admissions/StudentForm";
 
-import Sidebar from "../../components/global/sidebar";
+import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
 

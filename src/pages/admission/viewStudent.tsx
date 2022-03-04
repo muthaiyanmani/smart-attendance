@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../../components/global/sidebar";
+import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
 
