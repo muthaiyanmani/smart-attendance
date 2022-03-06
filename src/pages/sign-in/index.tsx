@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import swal from "sweetalert";
 import { BASE_URL } from "../../config/settings";
 
 export default function SignInComponent() {

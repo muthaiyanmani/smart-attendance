@@ -1,3 +1,4 @@
+import { FormikHandlers, FormikProps } from "formik";
 import React from "react";
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   type?: "text" | "number" | "email" | "password" | "date";
   name: string;
   isDisabled?: boolean;
-  formik: any;
+  formik: FormikProps<any>;
 };
 
 const Input = ({
@@ -15,7 +16,7 @@ const Input = ({
   name,
   isDisabled = false,
   isRequired = false,
-  formik: { onChange, onBlur, values },
+  formik: { handleChange, values },
 }: Props) => {
   return (
     <>
@@ -32,8 +33,7 @@ const Input = ({
             id={name}
             name={name}
             type={type}
-            onChange={onChange}
-            onBlur={onBlur}
+            onChange={handleChange}
             value={values[name]}
             disabled={isDisabled}
             className="block w-full py-3 px-2 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
@@ -45,3 +45,6 @@ const Input = ({
 };
 
 export default Input;
+function formik(arg0: string, formik: any) {
+  throw new Error("Function not implemented.");
+}
