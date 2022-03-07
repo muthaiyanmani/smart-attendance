@@ -1,6 +1,19 @@
+import { useFormik } from "formik";
+
+
+
 export default function AddClassForm() {
+  const initialValues = {
+    class: "",
+    section: "",
+    classAdvisor: "",
+  }
+  const formik = useFormik({
+initialValues: initialValues,
+onSubmit: value => console.log(value),
+  })
   return (
-    <form className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+    <form className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8" onSubmit={formik.handleSubmit}>
       <div>
         <label
           htmlFor="first-name"
@@ -11,8 +24,10 @@ export default function AddClassForm() {
         <div className="mt-1">
           <input
             type="text"
-            name="first-name"
+            name="class"
+            value={formik.values.class}
             id="first-name"
+            onChange={formik.handleChange}
             autoComplete="given-name"
             className="py-2 px-4 border block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
           />
@@ -28,7 +43,9 @@ export default function AddClassForm() {
         <div className="mt-1">
           <input
             type="text"
-            name="last-name"
+            name="section"
+            value={formik.values.section}
+            onChange={formik.handleChange}
             id="last-name"
             autoComplete="family-name"
             className="py-2 px-4 border block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
@@ -45,7 +62,9 @@ export default function AddClassForm() {
         <div className="mt-1">
           <input
             type="text"
-            name="company"
+            name="classAdvisor"
+            value={formik.values.classAdvisor}
+            onChange={formik.handleChange}
             id="company"
             autoComplete="organization"
             className="py-2 px-4 block border w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"

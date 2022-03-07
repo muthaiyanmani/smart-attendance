@@ -16,8 +16,9 @@ const Input = ({
   name,
   isDisabled = false,
   isRequired = false,
-  formik: { handleChange, values },
+  formik: { handleChange, values, errors },
 }: Props) => {
+  console.log(errors[name]);
   return (
     <>
       <div className="sm:col-span-2">
@@ -38,6 +39,7 @@ const Input = ({
             disabled={isDisabled}
             className="block w-full py-3 px-2 border-2 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
           />
+          <p className="text-xs text-red-500">{errors[name]}</p>
         </div>
       </div>
     </>
@@ -45,6 +47,4 @@ const Input = ({
 };
 
 export default Input;
-function formik(arg0: string, formik: any) {
-  throw new Error("Function not implemented.");
-}
+

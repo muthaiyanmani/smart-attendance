@@ -1,5 +1,6 @@
 import Input from "../../global/Input";
 import { useFormik } from "formik";
+import * as yup from "yup";
 
 export default function StudentForm() {
   const initialValues = {
@@ -16,10 +17,25 @@ export default function StudentForm() {
     motherOccupation: "",
     annualIncome: "",
     mobile: "",
+
   };
+
+const validationSchema = yup.object().shape({
+  firstName: yup.string().required('Required'),
+  lastName: yup.string().required('Required'),
+  email: yup.string().email("Invalid Email"),
+  dateOfBirth: yup.string().required('Required'),
+  address: yup.string().max(500, "Max chareter reached").required('Required'),
+  fatherName: yup.string().required("Required"),
+  motherName: yup.string().required('Required'),
+  annualIncome:yup.number().integer().required('Required'),
+  mobile: yup.string().required('Required'),
+
+})
 
   const formik = useFormik({
     initialValues: initialValues,
+    validationSchema: validationSchema,
     onSubmit: (values) => console.log(values),
   });
 
