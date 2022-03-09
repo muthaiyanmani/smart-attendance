@@ -9,11 +9,11 @@ const people = [
     teacher: "Mr. Test",
     route: "cse",
   },
-  {
-    class: "CSE",
-    teacher: "Mr. Test",
-    route: "cse",
-  },
+  // {
+  //   class: "CSE",
+  //   teacher: "Mr. Test",
+  //   route: "cse",
+  // },
   {
     class: "CSE",
     teacher: "Mr. Test",
