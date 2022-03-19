@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
-import AddNewClass from "./pages/admission/CreateClass";
-import AddNewStudent from "./pages/admission/AddStudent";
-import Admissions from "./pages/admission";
+import AddClass from "./pages/admission/CreateClass";
+import AddStudent from "./pages/admission/AddStudent";
+import Admissions from "./pages/admission/index";
 import ClassStudentsList from "./pages/admission/StudentList";
 import Classroom from "./pages/classroom";
 
@@ -73,7 +73,7 @@ function App() {
         path="/dashboard/admissions/:classId/new"
         element={
           <RequireAuth>
-            <AddNewStudent />
+            <AddStudent />
           </RequireAuth>
         }
       />
@@ -97,7 +97,7 @@ function App() {
         path="/dashboard/admissions/new"
         element={
           <RequireAuth>
-            <AddNewClass />
+            <AddClass />
           </RequireAuth>
         }
       />
