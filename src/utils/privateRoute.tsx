@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useLocation, Navigate, Outlet } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { useUser } from "../services/user.context";
 
 export function RequireAuth({ children }: { children: JSX.Element }) {

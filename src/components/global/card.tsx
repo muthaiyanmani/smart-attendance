@@ -1,6 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { PlusIcon } from "@heroicons/react/outline";
-import { MailIcon, PhoneIcon, PlusCircleIcon } from "@heroicons/react/solid";
 import { Link } from "react-router-dom";
 
 const people = [

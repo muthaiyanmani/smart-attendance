@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSignIn } from "../../api/sign-in/signIn";
 
 import { useUser } from "../../services/user.context";
@@ -16,6 +15,7 @@ export default function SignInComponent() {
       Object.getOwnPropertyNames(user.userState.user).length !== 0
     )
       navigate("/dashboard");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const initialValues = {

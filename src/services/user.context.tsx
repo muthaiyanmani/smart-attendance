@@ -38,6 +38,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
 
   useEffect(() => {
     reloadUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const addUser = (user: User): void => {
