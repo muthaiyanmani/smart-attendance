@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 import AddClass from "./pages/admission/CreateClass";
-// import AddStudent from "./pages/admission/AddStudent";
+import AddStudent from "./pages/admission/AddStudent";
 import Admissions from "./pages/admission/index";
 import ClassStudentsList from "./pages/admission/StudentList";
 import Classroom from "./pages/classroom";
@@ -69,14 +69,14 @@ function App() {
           </RequireAuth>
         }
       />
-      {/* <Route
+      <Route
         path="/dashboard/admissions/:classId/new"
         element={
           <RequireAuth>
             <AddStudent />
           </RequireAuth>
         }
-      /> */}
+      />
       <Route
         path="/dashboard/admissions/:classId/edit/:studentId"
         element={
