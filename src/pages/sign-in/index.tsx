@@ -1,28 +1,23 @@
 import axios from "axios";
+import { useFormik } from "formik";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSignIn } from "../../api/sign-in/signIn";
 import { BASE_URL } from "../../config/settings";
 
 export default function SignInComponent() {
-  const [user, setUser] = useState({
+  const { mutate } = useSignIn();
+
+  const initialValues = {
     email: "",
     password: "",
+  };
+
+  const formik = useFormik({
+    initialValues: initialValues,
+    onSubmit: (values) => mutate(values),
   });
 
-  const navigate = useNavigate();
-  const loginHandler = (e: any) => {
-    e.preventDefault();
-    navigate("/dashboard");
-    // axios
-    //   .post(`${BASE_URL}/signin`, user, { withCredentials: true })
-    //   .then((res) => {
-    //     setUser({ email: "", password: "" });
-    //     navigate("/");
-    //   })
-    //   .catch((err) => {
-    //     swal(`${err.response.data.message}`);
-    //   });
-  };
   return (
     <>
       <div className=" bg-white text-slate-900 h-screen px-4 sm:px-6 lg:px-8">
@@ -119,7 +114,7 @@ export default function SignInComponent() {
                 </h2>
               </div>
               <br />
-              <form className="mt-8 space-y-6" onSubmit={loginHandler}>
+              <form className="mt-8 space-y-6" onSubmit={formik.handleSubmit}>
                 <div className="-space-y-px rounded-md shadow-sm">
                   <div>
                     <input
@@ -127,10 +122,8 @@ export default function SignInComponent() {
                       type="email"
                       autoComplete="email"
                       required
-                      value={user.email}
-                      onChange={(e) =>
-                        setUser({ ...user, email: e.target.value })
-                      }
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
                       className="relative block w-full lg:w-80 px-3 h-10 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Email address"
                     />
@@ -142,10 +135,8 @@ export default function SignInComponent() {
                       type="password"
                       autoComplete="current-password"
                       required
-                      value={user.password}
-                      onChange={(e) =>
-                        setUser({ ...user, password: e.target.value })
-                      }
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
                       className="relative block w-full px-3 h-10 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       placeholder="Password"
                     />
