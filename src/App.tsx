@@ -4,7 +4,7 @@ import "./App.css";
 
 import AddClass from "./pages/admission/CreateClass";
 import AddStudent from "./pages/admission/AddStudent";
-import Admissions from "./pages/admission/index";
+import Admissions from "./pages/admission";
 import ClassStudentsList from "./pages/admission/StudentList";
 import Classroom from "./pages/classroom";
 
