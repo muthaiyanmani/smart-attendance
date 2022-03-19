@@ -31,7 +31,10 @@ const userReducer = (state: UserState, action: UserActions): any => {
 };
 
 const UserProvider = ({ children }: UserProviderProps) => {
-  const [state, dispatch] = useReducer(userReducer, { user: {} });
+  const [state, dispatch] = useReducer(userReducer, {
+    user: getUser(),
+  });
+  const user = getUser();
 
   useEffect(() => {
     reloadUser();
@@ -53,11 +56,12 @@ const UserProvider = ({ children }: UserProviderProps) => {
   };
 
   const reloadUser = () => {
-    const user = getUser();
-    dispatch({
-      type: UserActionTypes.ADD_USER,
-      payload: user ? user : undefined,
-    });
+    if (Object.getOwnPropertyNames(user).length !== 0) {
+      dispatch({
+        type: UserActionTypes.ADD_USER,
+        payload: user,
+      });
+    }
   };
 
   const value = { userState: state, addUser, removeUser };

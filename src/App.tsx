@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -16,6 +16,7 @@ import SignIn from "./pages/sign-in";
 import EditStudent from "./pages/admission/EditStudent";
 import ViewStudent from "./pages/admission/ViewStudent";
 import AttendanceForm from "./pages/classroom/AttendaceForm";
+import { RequireAuth } from "./utils/privateRoute";
 
 function App() {
   return (
@@ -24,38 +25,100 @@ function App() {
       <Route path="/" element={<SignIn />} />
 
       {/* Dashboard */}
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        }
+      />
 
       {/* Classroom Tab */}
-      <Route path="/dashboard/classroom" element={<Classroom />} />
+      <Route
+        path="/dashboard/classroom"
+        element={
+          <RequireAuth>
+            <Classroom />
+          </RequireAuth>
+        }
+      />
       <Route
         path="/dashboard/classroom/:classId"
-        element={<AttendanceForm />}
+        element={
+          <RequireAuth>
+            <AttendanceForm />
+          </RequireAuth>
+        }
       />
 
       {/* Admissions Tab */}
-      <Route path="/dashboard/admissions" element={<Admissions />} />
+      <Route
+        path="/dashboard/admissions"
+        element={
+          <RequireAuth>
+            <Admissions />
+          </RequireAuth>
+        }
+      />
       <Route
         path="/dashboard/admissions/:classId"
-        element={<ClassStudentsList />}
+        element={
+          <RequireAuth>
+            <ClassStudentsList />
+          </RequireAuth>
+        }
       />
       <Route
         path="/dashboard/admissions/:classId/new"
-        element={<AddNewStudent />}
+        element={
+          <RequireAuth>
+            <AddNewStudent />
+          </RequireAuth>
+        }
       />
       <Route
         path="/dashboard/admissions/:classId/edit/:studentId"
-        element={<EditStudent />}
+        element={
+          <RequireAuth>
+            <EditStudent />
+          </RequireAuth>
+        }
       />
       <Route
         path="/dashboard/admissions/:classId/view/:studentId"
-        element={<ViewStudent />}
+        element={
+          <RequireAuth>
+            <ViewStudent />
+          </RequireAuth>
+        }
       />
-      <Route path="/dashboard/admissions/new" element={<AddNewClass />} />
+      <Route
+        path="/dashboard/admissions/new"
+        element={
+          <RequireAuth>
+            <AddNewClass />
+          </RequireAuth>
+        }
+      />
 
       {/* Reports */}
-      <Route path="/dashboard/reports" element={<Reports />} />
-      <Route path="/dashboard/reports/:classId" element={<Reports />} />
+      <Route
+        path="/dashboard/reports"
+        element={
+          <RequireAuth>
+            <Reports />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/dashboard/reports/:classId"
+        element={
+          <RequireAuth>
+            <Reports />
+          </RequireAuth>
+        }
+      />
     </Routes>
   );
 }

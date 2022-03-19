@@ -1,13 +1,7 @@
 import { User } from "./token.types";
 
-const getUser = (): User | null => {
-  const user =
-    window.localStorage.getItem("user") ??
-    JSON.parse(window.localStorage.getItem("user") ?? "{}");
-  if (user) {
-    return user;
-  }
-  return null;
+const getUser = (): User | {} => {
+  return JSON.parse(window.localStorage.getItem("user") ?? "{}");
 };
 
 const setUser = (user: User): void => {

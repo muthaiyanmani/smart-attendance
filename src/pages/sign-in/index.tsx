@@ -1,12 +1,22 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSignIn } from "../../api/sign-in/signIn";
-import { BASE_URL } from "../../config/settings";
+
+import { useUser } from "../../services/user.context";
 
 export default function SignInComponent() {
   const { mutate } = useSignIn();
+  const navigate = useNavigate();
+  const user = useUser();
+  useEffect(() => {
+    if (
+      user?.userState?.user &&
+      Object.getOwnPropertyNames(user.userState.user).length !== 0
+    )
+      navigate("/dashboard");
+  }, []);
 
   const initialValues = {
     email: "",
@@ -36,8 +46,8 @@ export default function SignInComponent() {
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -50,8 +60,8 @@ export default function SignInComponent() {
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -64,8 +74,8 @@ export default function SignInComponent() {
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -78,8 +88,8 @@ export default function SignInComponent() {
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path
@@ -92,8 +102,8 @@ export default function SignInComponent() {
                 <li className="flex items-center">
                   <svg
                     className="w-6 h-6 flex-none fill-sky-100 stroke-sky-500 stroke-2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
                     <circle cx="12" cy="12" r="11" />
                     <path

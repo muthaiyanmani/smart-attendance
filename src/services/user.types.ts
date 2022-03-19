@@ -7,7 +7,7 @@ enum UserActionTypes {
 }
 
 type UserActions =
-  | { type: UserActionTypes.ADD_USER; payload?: User | undefined }
+  | { type: UserActionTypes.ADD_USER; payload?: User | {} }
   | { type: UserActionTypes.REMOVE_USER; payload?: User | undefined };
 
 export { UserActionTypes };
