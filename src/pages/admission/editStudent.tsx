@@ -1,5 +1,5 @@
 import React from "react";
-// import StudentForm from "../../components/pages/admissions/StudentForm";
+import StudentForm from "../../components/pages/admissions/StudentForm";
 import Sidebar from "../../components/global/Sidebar";
 
 type Props = {};
@@ -15,7 +15,7 @@ const EditStudent = (props: Props) => {
                 Edit a Student
               </h2>
 
-              {/* <StudentForm /> */}
+              <StudentForm />
             </div>
           </div>
         </div>

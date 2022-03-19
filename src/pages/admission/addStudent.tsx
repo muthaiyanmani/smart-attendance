@@ -1,5 +1,5 @@
 import React from "react";
-// import AddStudentForm from "../../components/pages/admissions/StudentForm";
+import AddStudentForm from "../../components/pages/admissions/StudentForm";
 
 import Sidebar from "../../components/global/Sidebar";
 
@@ -16,7 +16,7 @@ const AddNewStudent = (props: Props) => {
                 Add a Student
               </h2>
 
-              {/* <AddStudentForm /> */}
+              <AddStudentForm />
             </div>
           </div>
         </div>

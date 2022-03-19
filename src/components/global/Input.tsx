@@ -45,6 +45,3 @@ const Input = ({
 };
 
 export default Input;
-function formik(arg0: string, formik: any) {
-  throw new Error("Function not implemented.");
-}

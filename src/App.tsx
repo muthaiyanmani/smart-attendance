@@ -17,10 +17,19 @@ import EditStudent from "./pages/admission/EditStudent";
 import ViewStudent from "./pages/admission/ViewStudent";
 import AttendanceForm from "./pages/classroom/AttendaceForm";
 import { RequireAuth } from "./utils/privateRoute";
+import Input from "./components/global/Input";
+import { useFormik } from "formik";
 
 function App() {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+    },
+    onSubmit: (value) => console.log(value),
+  });
   return (
     <Routes>
+      <Input label={"Summa"} name={"test"} formik={formik} />
       {/* Sign in */}
       <Route path="/" element={<SignIn />} />
 
