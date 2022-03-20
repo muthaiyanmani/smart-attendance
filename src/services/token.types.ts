@@ -7,4 +7,4 @@ type UserDetail = {
   token: string;
 };
 
-export type { User };
+export type { User, UserDetail };

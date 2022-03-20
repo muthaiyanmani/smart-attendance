@@ -1,19 +1,14 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useEffect, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import { useEffect, useState } from "react";
 import {
-  CalendarIcon,
   ChartBarIcon,
   FolderIcon,
   HomeIcon,
-  InboxIcon,
-  MenuIcon,
   UsersIcon,
-  XIcon,
   CheckCircleIcon,
-  XCircleIcon,
 } from "@heroicons/react/outline";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useUser } from "src/services/user.context";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -25,6 +20,21 @@ type Props = {
 
 export default function Sidebar({ children }: Props) {
   const [onlineStatus, setOnlineStatus] = useState(false);
+
+  const navigate = useNavigate();
+  const user = JSON.parse(window.localStorage.getItem("user") ?? "{}");
+  const { removeUser } = useUser();
+
+  const handleLogout = () => {
+    // eslint-disable-next-line no-restricted-globals
+    let result = confirm("Are you sure you want to logout?");
+    if (result) {
+      removeUser();
+      navigate("/");
+    } else {
+      return;
+    }
+  };
 
   useEffect(() => {
     navigator.onLine ? setOnlineStatus(true) : setOnlineStatus(false);
@@ -133,7 +143,7 @@ export default function Sidebar({ children }: Props) {
               </nav>
             </div>
             <div className="flex-shrink-0 flex bg-gray-700 p-4">
-              <Link to="/" className="flex-shrink-0 w-full group block">
+              <div className="flex-shrink-0 w-full group block">
                 <div className="flex items-center">
                   <div>
                     <img
@@ -143,10 +153,15 @@ export default function Sidebar({ children }: Props) {
                     />
                   </div>
                   <div className="ml-3">
-                    <p className="text-sm font-medium text-white">Admin</p>
-                    <p className="text-xs font-medium text-gray-300 group-hover:text-gray-200">
-                      Logout
+                    <p className="text-sm font-medium text-white">
+                      {user?.name ? user?.name : "User"}
                     </p>
+                    <button
+                      onClick={handleLogout}
+                      className="text-xs font-medium text-gray-300 group-hover:text-gray-200"
+                    >
+                      Logout
+                    </button>
                   </div>
                   <div className="ml-6 text-sm">
                     {onlineStatus ? (
@@ -162,7 +177,7 @@ export default function Sidebar({ children }: Props) {
                     )}
                   </div>
                 </div>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
