@@ -47,7 +47,7 @@ export default function Card({ addNewCard = false, route }: Props) {
 
   return (
     <ul className="grid grid-cols-1 px-3 md:px-1 my-5 gap-5 md:gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {people.length &&
+      {!isLoading &&
         people.map((item: any, index: number) => (
           <li
             key={index}
