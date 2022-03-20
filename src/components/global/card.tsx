@@ -71,11 +71,14 @@ export default function Card({ addNewCard = false, route }: Props) {
             to={`/dashboard/admissions/new`}
             className="flex-1 flex flex-col p-8"
           >
-            <div className="mt-6 flex text-gray-900 text-center justify-center text-sm font-medium">
+            <div className="mt-3 flex text-gray-900 text-center justify-center text-sm font-medium">
               <PlusIcon className="h-6 w-6" />
             </div>
-            <h3 className="mt-6 text-gray-900 text-sm font-medium">
+            <h3 className="mt-3 text-gray-900 text-sm font-medium">
               Add a new class
+            </h3>
+            <h3 className="text-red-500 text-xs mt-2 font-medium">
+              Class name should be unique
             </h3>
           </Link>
         </li>

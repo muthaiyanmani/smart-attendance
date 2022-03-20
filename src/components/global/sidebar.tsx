@@ -156,12 +156,12 @@ export default function Sidebar({ children }: Props) {
                     <p className="text-sm font-medium text-white">
                       {user?.name ? user?.name : "User"}
                     </p>
-                    <button
+                    <p
                       onClick={handleLogout}
-                      className="text-xs font-medium text-gray-300 group-hover:text-gray-200"
+                      className="text-xs cursor-pointer font-medium text-gray-300 group-hover:text-gray-200"
                     >
                       Logout
-                    </button>
+                    </p>
                   </div>
                   <div className="ml-6 text-sm">
                     {onlineStatus ? (
